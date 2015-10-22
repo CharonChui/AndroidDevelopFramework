@@ -1,9 +1,6 @@
 package com.charonchui.framework.util;
 
 import android.text.TextUtils;
-
-import org.apache.http.protocol.HTTP;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,7 +14,7 @@ public class Md5Utils {
 	private static final char[] HEX = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 	private static final char[] HEX_LOWER_CASE = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 	public static final String ALGORITHM = "MD5";
-	public static final String DEFAULT_CHARSET = HTTP.UTF_8;
+	public static final String DEFAULT_CHARSET = "utf-8";
 
 	public static String md5LowerCase(String string) {
 		if (TextUtils.isEmpty(string)) {
