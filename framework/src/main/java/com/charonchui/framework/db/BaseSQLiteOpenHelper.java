@@ -33,7 +33,6 @@ public class BaseSQLiteOpenHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		// 创建表
 		db.execSQL(DatabaseConfig.CREATE_TABLE_TEST);
 	}
 
@@ -112,21 +111,7 @@ public class BaseSQLiteOpenHelper extends SQLiteOpenHelper {
 	 * @param selectionArgs
 	 *            You may include ?s in selection, which will be replaced by the
 	 *            values from selectionArgs, in order that they appear in the
-	 *            selection. The values will be bound as Strings.
-	 * @param groupBy
-	 *            A filter declaring how to group rows, formatted as an SQL
-	 *            GROUP BY clause (excluding the GROUP BY itself). Passing null
-	 *            will cause the rows to not be grouped.
-	 * @param having
-	 *            A filter declare which row groups to include in the cursor, if
-	 *            row grouping is being used, formatted as an SQL HAVING clause
-	 *            (excluding the HAVING itself). Passing null will cause all row
-	 *            groups to be included, and is required when row grouping is
-	 *            not being used.
-	 * @param orderBy
-	 *            How to order the rows, formatted as an SQL ORDER BY clause
-	 *            (excluding the ORDER BY itself). Passing null will use the
-	 *            default sort order, which may be unordered.
+	 *            selection. The values will be bound as Strings
 	 * @return true is success else false.
 	 */
 	public boolean insertOrUpdate(String table, ContentValues values,
@@ -232,9 +217,6 @@ public class BaseSQLiteOpenHelper extends SQLiteOpenHelper {
 		return result;
 	}
 
-	/**
-	 * 释放数据库资源
-	 **/
 	public void closeDatabase(SQLiteDatabase db, Cursor c) {
 		if (c != null) {
 			c.close();

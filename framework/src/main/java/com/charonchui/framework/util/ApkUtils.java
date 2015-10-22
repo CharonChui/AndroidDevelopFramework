@@ -80,23 +80,14 @@ public class ApkUtils {
         return getInstalledApps(context, pm);
     }
 
-    /**
-     * 所有已安装的应用(包括系统、非系统应用)
-     */
     public static List<PackageInfo> getInstalledApps(Context context, PackageManager pm) {
         return getAllApps(context, pm, APP_TYPE_ALL);
     }
 
-    /**
-     * 所有已安装的非系统应用
-     */
     public static List<PackageInfo> getInstalledNonSystemApps(Context context, PackageManager pm) {
         return getAllApps(context, pm, APP_TYPE_NON_SYSTEM);
     }
 
-    /**
-     * 所有已安装的系统应用
-     */
     public static List<PackageInfo> getInstalledSystemApps(Context context, PackageManager pm) {
         return getAllApps(context, pm, APP_TYPE_SYSTEM);
     }
@@ -222,13 +213,6 @@ public class ApkUtils {
         }
     }
 
-    /**
-     * 启动某个已安装应用
-     *
-     * @param context
-     * @param packageName
-     * @return
-     */
     public static boolean openApp(final Context context, final String packageName) {
         Intent mIntent = context.getPackageManager().getLaunchIntentForPackage(packageName);
         if (mIntent != null) {
@@ -239,12 +223,6 @@ public class ApkUtils {
         }
     }
 
-    /**
-     * 判断某个应用是否为系统应用
-     *
-     * @param info
-     * @return
-     */
     public static boolean isSystemApp(ApplicationInfo info) {
         if ((info.flags & ApplicationInfo.FLAG_SYSTEM) > 0) {
             if (info.publicSourceDir.startsWith("data/dataapp") || info.publicSourceDir.startsWith("/data/dataapp")) {
@@ -255,13 +233,6 @@ public class ApkUtils {
         return false;
     }
 
-    /**
-     * 同步方式获得应用签名
-     *
-     * @param context
-     * @param packname
-     * @return
-     */
     public static String getAppSignatureMd5(Context context, String packname) {
         try {
             PackageManager packageManager = context.getPackageManager();

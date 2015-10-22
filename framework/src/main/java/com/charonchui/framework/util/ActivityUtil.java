@@ -19,21 +19,8 @@ import android.view.inputmethod.InputMethodManager;
 import java.lang.reflect.Field;
 import java.util.List;
 
-/**
- * Activity相关的一些工具类，包括设置全屏、横竖屏、屏幕宽高、状态栏和输入法以及判断当前的应用程序是否是后台等
- *
- * @author CharonChui
- */
 public class ActivityUtil {
 
-    /**
-     * 切换全屏状态。
-     *
-     * @param activity
-     *            Activity
-     * @param isFull
-     *            设置为true则全屏，否则非全屏
-     */
     public static void toggleFullScreen(Activity activity, boolean isFull) {
         Window window = activity.getWindow();
         WindowManager.LayoutParams winParams = window.getAttributes();
@@ -46,12 +33,6 @@ public class ActivityUtil {
         window.setAttributes(winParams);
     }
 
-    /**
-     * 设置为全屏
-     *
-     * @param activity
-     *            Activity
-     */
     public static void setFullScreen(Activity activity) {
         toggleFullScreen(activity, true);
     }
@@ -60,13 +41,6 @@ public class ActivityUtil {
         return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 
-    /**
-     * 获取系统状态栏高度
-     *
-     * @param activity
-     *            Activity
-     * @return 状态栏高度
-     */
     public static int getStatusBarHeight(Activity activity) {
         try {
             Class<?> clazz = Class.forName("com.android.internal.R$dimen");
@@ -80,9 +54,6 @@ public class ActivityUtil {
         }
     }
 
-    /**
-     * 获取屏幕宽度，单位像素
-     */
     public static int getScreenWidth(Context context) {
         DisplayMetrics metric = new DisplayMetrics();
         WindowManager windowManager = (WindowManager) context
@@ -91,9 +62,6 @@ public class ActivityUtil {
         return metric.widthPixels;
     }
 
-    /**
-     * 获取屏幕高度，单位像素
-     */
     public static int getScreenHeight(Context context) {
         DisplayMetrics metric = new DisplayMetrics();
         WindowManager windowManager = (WindowManager) context
@@ -102,43 +70,23 @@ public class ActivityUtil {
         return metric.heightPixels;
     }
 
-    /**
-     * 隐藏Activity的系统默认标题栏
-     */
     public static void hideTitleBar(Activity activity) {
         activity.requestWindowFeature(Window.FEATURE_NO_TITLE);
     }
 
-    /**
-     * 将该Activity设置为竖直
-     */
     public static void setScreenVertical(Activity activity) {
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
-    /**
-     * 将该Activity设置为横向
-     */
     public static void setScreenHorizontal(Activity activity) {
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
 
-    /**
-     * 隐藏软件输入法
-     */
     public static void hideSoftInput(Activity activity) {
         activity.getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
-    /**
-     * 关闭已经显示的输入法窗口。
-     *
-     * @param context
-     *            上下文对象，一般为Activity
-     * @param focusingView
-     *            输入法所在焦点的View
-     */
     public static void closeSoftInput(Context context, View focusingView) {
         InputMethodManager imm = (InputMethodManager) context
                 .getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -146,14 +94,6 @@ public class ActivityUtil {
                 InputMethodManager.RESULT_UNCHANGED_SHOWN);
     }
 
-    /**
-     * 启动某个apk默认的Activity
-     *
-     * @param ctx
-     *            Context
-     * @param packageName
-     *            包名
-     */
     public static void startApkActivity(final Context ctx, String packageName) {
         PackageManager pm = ctx.getPackageManager();
         PackageInfo pi;
@@ -176,13 +116,6 @@ public class ActivityUtil {
         }
     }
 
-    /**
-     * 判断当前的应用程序是否在后台运行,使用该程序需要声明权限android.permission.GET_TASKS
-     *
-     * @param context
-     *            Context
-     * @return true表示当前应用程序在后台运行。false为在前台运行
-     */
     public static boolean isApplicationBroughtToBackground(Context context) {
         ActivityManager am = (ActivityManager) context
                 .getSystemService(Context.ACTIVITY_SERVICE);

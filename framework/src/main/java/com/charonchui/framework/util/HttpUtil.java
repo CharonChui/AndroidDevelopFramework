@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * Utility for http connection.
  * Based on volley.
- * <p/>
+ *
  * Created by CharonChui
  */
 public class HttpUtil {
@@ -79,9 +79,6 @@ public class HttpUtil {
         return stringRequest;
     }
 
-    /**
-     * Response listener of HttpUtil.
-     */
     public interface HttpListener {
 
         void onResponse(String response);

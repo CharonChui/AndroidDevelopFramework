@@ -17,14 +17,6 @@ import java.util.regex.Pattern;
  */
 public class IOUtil {
 
-	/**
-	 * 将InputStream流转换成BitmapDrawable。
-	 * 
-	 * @param is
-	 *            InputStream流
-	 * @return BitmapDrawable是Drawable的直接子类，可用于Drawable对象。
-	 * @throws IOException
-	 */
 	public static BitmapDrawable toBitmapDrawable(InputStream is)
 			throws IOException {
 		@SuppressWarnings("deprecation")
@@ -33,28 +25,12 @@ public class IOUtil {
 		return bitmapDrawable;
 	}
 
-	/**
-	 * 将InputStream流转换成Bitmap对象。
-	 * 
-	 * @param is
-	 *            InputStream对象
-	 * @return Bitmap对象
-	 * @throws IOException
-	 */
 	public static Bitmap toBitmap(InputStream is) throws IOException {
 		if (null == is)
 			return null;
 		return toBitmapDrawable(is).getBitmap();
 	}
 
-	/**
-	 * 将InputStream转换成StringBuilder对象。
-	 * 
-	 * @param is
-	 *            InputStream对象
-	 * @return StringBuilder
-	 * @throws IOException
-	 */
 	public static StringBuilder toStringBuffer(InputStream is)
 			throws IOException {
 		if (null == is)
@@ -69,30 +45,12 @@ public class IOUtil {
 		return buffer;
 	}
 
-	/**
-	 * 将InputStream转换成字符串。
-	 * 
-	 * @param is
-	 *            InputStream对象
-	 * @return 字符串
-	 * @throws IOException
-	 */
 	public static String toString(InputStream is) throws IOException {
 		if (null == is)
 			return null;
 		return toStringBuffer(is).toString();
 	}
 
-	/**
-	 * 将InputStream流转换为字符串，并指定编码类型。
-	 * 
-	 * @param is
-	 *            InputStream流
-	 * @param encoding
-	 *            编码类型
-	 * @return 字符串
-	 * @throws IOException
-	 */
 	public static String convertToString(InputStream is, String encoding)
 			throws IOException {
 		if (null == is)
@@ -110,14 +68,6 @@ public class IOUtil {
 		return buffer.toString();
 	}
 
-	/**
-	 * 将InputStream转换成字节数组。
-	 * 
-	 * @param is
-	 *            InputStream对象
-	 * @return 字节数组
-	 * @throws IOException
-	 */
 	public static byte[] toByteArray(InputStream is) throws IOException {
 		if (null == is)
 			return null;
@@ -130,14 +80,6 @@ public class IOUtil {
 		return buffer.toByteArray();
 	}
 
-	/**
-	 * 获取流编码类型
-	 * 
-	 * @param is
-	 *            InputStream流
-	 * @return 编码类型
-	 * @throws IOException
-	 */
 	public static String getStreamEncoding(InputStream is) throws IOException {
 		BufferedInputStream bis = new BufferedInputStream(is);
 		bis.mark(2);
@@ -163,14 +105,6 @@ public class IOUtil {
 		return encoding;
 	}
 
-	/**
-	 * 获取HTML文本流的编码类型
-	 * 
-	 * @param is
-	 *            HTML文本流
-	 * @return 编码类型
-	 * @throws IOException
-	 */
 	public static String getEncodingFromHTML(InputStream is) throws IOException {
 		final int FIND_CHARSET_CACHE_SIZE = 4 * 1024;
 		BufferedInputStream bis = new BufferedInputStream(is);
@@ -181,13 +115,6 @@ public class IOUtil {
 		return getHtmlCharset(new String(cache));
 	}
 
-	/**
-	 * 获取HTML文本字符集类型
-	 * 
-	 * @param content
-	 *            HTML内容
-	 * @return 字符集类型
-	 */
 	public static String getHtmlCharset(String content) {
 		String encoding = null;
 		final String CHARSET_REGX = "<meta.*charset=\"?([a-zA-Z0-9-_/]+)\"?";

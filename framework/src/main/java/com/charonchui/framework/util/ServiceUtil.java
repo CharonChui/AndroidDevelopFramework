@@ -8,13 +8,6 @@ import java.util.List;
 
 public class ServiceUtil {
 
-	/**
-	 * Check if the sevice is in running mode.
-	 * 
-	 * @param context
-	 * @param cls
-	 * @return
-	 */
 	public static boolean isServiceRunning(Context context, Class<?> cls) {
 		ActivityManager activityManager = (ActivityManager) context
 				.getSystemService(Context.ACTIVITY_SERVICE);

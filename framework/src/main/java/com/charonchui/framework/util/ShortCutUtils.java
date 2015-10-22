@@ -20,9 +20,6 @@ import android.os.Parcelable;
  */
 public class ShortCutUtils {
 
-	/**
-	 * Create a shortcut.
-	 */
 	public static void addShortcut(Context cx, int iconResource) {
 		Intent shortcut = new Intent(
 				"com.android.launcher.action.INSTALL_SHORTCUT");
@@ -47,11 +44,6 @@ public class ShortCutUtils {
 		cx.sendBroadcast(shortcut);
 	}
 
-	/**
-	 * Delete shortcut.
-	 * 
-	 * @param cx
-	 */
 	public static void delShortcut(Context cx) {
 		Intent shortcut = new Intent(
 				"com.android.launcher.action.UNINSTALL_SHORTCUT");
@@ -70,9 +62,6 @@ public class ShortCutUtils {
 		cx.sendBroadcast(shortcut);
 	}
 
-	/**
-	 * Judge if have a shortcut already.
-	 */
 	public static boolean hasShortcut(Context cx) {
 		boolean result = false;
 		String title = null;

@@ -14,12 +14,6 @@ import java.util.List;
  */
 public class IntentUtil {
 
-    /**
-     * Check if this intent can be resolved by the system.
-     * @param context
-     * @param intent
-     * @return
-     */
     public static boolean isIntentAvailable(Context context, Intent intent) {
         PackageManager packageManager = context.getPackageManager();
         List<ResolveInfo> list = packageManager.queryIntentActivities(intent,

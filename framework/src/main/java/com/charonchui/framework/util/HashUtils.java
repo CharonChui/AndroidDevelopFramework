@@ -26,7 +26,6 @@ public class HashUtils {
             return toHexString(d);
 
         } catch (NoSuchAlgorithmException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return uri;
