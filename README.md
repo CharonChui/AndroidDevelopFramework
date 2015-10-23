@@ -3,10 +3,31 @@ AndroidDevelopFramework
 
 A framework contains many utils and interface will make us very convenience when we make android development.
 
+Status
+===
+
+* [![Maven Central](http://img.shields.io/badge/2015.10.22-com.charonchui.framework:framework:1.0.0-brightgreen.svg)](https://oss.sonatype.org/content/repositories/releases/com/charonchui/framework/framework/1.0.0/)
+
+
 Usage
 ===
 
-Please wait for 1.0.0 version.        
+for Gradle
+---
+
+If you are building with Gradle, simply add the following line to the `dependencies` section of your `build.gradle` file :            
+`compile 'com.charonchui.framework:framework:1.0.0'`         
+
+for Maven
+---
+
+```xml
+<dependency>
+  <groupId>com.charonchui.framework</groupId>
+  <artifactId>framework</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```    
 
 Has what?
 ===
