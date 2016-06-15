@@ -26,9 +26,11 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.mcxiaoke.volley:library:1.0.10'
+    compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'com.jakewharton:butterknife:6.1.0'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
+
 }
 
 def siteUrl = 'https://github.com/CharonChui/AndroidDevelopFramework'      // Homepage URL of the library

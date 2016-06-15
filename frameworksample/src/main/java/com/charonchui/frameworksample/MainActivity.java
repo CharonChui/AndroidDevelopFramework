@@ -1,22 +1,15 @@
 package com.charonchui.frameworksample;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentActivity;
 
-import com.charonchui.framework.util.ActivityUtil;
-import com.charonchui.framework.util.LogUtil;
-import com.charonchui.framework.util.ToastUtil;
-
-public class MainActivity extends Activity {
-
+public class MainActivity extends FragmentActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        LogUtil.e("@@@", "" + ActivityUtil.getScreenHeight(this));
-        ToastUtil.makeText(this, "hello world", Toast.LENGTH_SHORT).show();
+                setContentView(R.layout.activity_main);
+        getSupportFragmentManager().beginTransaction().add(R.id.fl, new MainFragment()).commit();
     }
-
-
 }
